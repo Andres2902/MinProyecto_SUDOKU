@@ -37,6 +37,12 @@ public class Game extends GameAbstract {
                 textField.setText(String.valueOf(number));
                 if (number != 0) {
                     textField.setEditable(false);
+                    textField.setText(String.valueOf(number));
+                    textField.setStyle(
+                            "-fx-background-color: #d9e2ec;" +
+                                    "-fx-border-color: #FACF0F;" +
+                                    "-fx-border-width: 1;" +
+                                    "-fx-text-fill: #142850;");
                 } else{
                     textField.setText("");
                 }
@@ -71,7 +77,14 @@ public class Game extends GameAbstract {
                 int value = Integer.parseInt(input);
                 if (board.isValid(row, col, value)) {
                     board.setNumber(row, col, value);
-                    txt.setStyle("-fx-border-color: #00A8CC; -fx-text-fill: #142850;");
+                    txt.setStyle("-fx-border-color: #21891A; -fx-text-fill: #142850;");
+
+                    if (board.isComplete()) {
+                        System.out.println("¡Sudoku completado correctamente!");
+
+                        com.example.demosudoku.utils.AlertBox alert = new com.example.demosudoku.utils.AlertBox();
+                        alert.showAlert("¡Felicidades!", "Has completado correctamente el Sudoku.", javafx.scene.control.Alert.AlertType.INFORMATION);
+                    }
                 } else {
                     txt.setStyle("-fx-border-color: red; -fx-text-fill: red;");
                 }

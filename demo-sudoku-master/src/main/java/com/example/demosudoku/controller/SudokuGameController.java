@@ -9,6 +9,11 @@ import javafx.scene.layout.GridPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.example.demosudoku.utils.AlertBox;
+import javafx.scene.control.Alert;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 /**
  * Controller for the main Sudoku game view (sudoku-game-view.fxml).
  * This class is responsible for initializing and managing the game board's UI.
@@ -47,4 +52,12 @@ public class SudokuGameController implements Initializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @FXML
+    private void handleHelp(ActionEvent event) {
+        AlertBox alertBox = new AlertBox();
+        String message = game.suggestNumber();
+        alertBox.showAlert("Ayuda del Sudoku", message, Alert.AlertType.INFORMATION);
+    }
+
 }
