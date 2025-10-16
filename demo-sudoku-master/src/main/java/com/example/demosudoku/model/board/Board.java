@@ -109,6 +109,7 @@ public class Board implements IBoard {
     @Override
     public boolean isValid(int row, int col, int candidate) {
         // Check the current row for an existing occurrence of the candidate.
+        if (candidate < 1 || candidate > SIZE) return false;
         for (int j = 0; j < SIZE; j++) {
             if (j != col && board.get(row).get(j) == candidate) { //j != col no se verifica el numero que está en la columna
                 return false;
@@ -118,6 +119,16 @@ public class Board implements IBoard {
         for (int i = 0; i < SIZE; i++) {
             if (i != row && board.get(i).get(col) == candidate) { //i != row col no se verifica el numero que está en la fila
                 return false;
+            }
+
+        }
+        int startRow = (row / BLOCK_ROWS) * BLOCK_ROWS;
+        int startCol = (col / BLOCK_COLS) * BLOCK_COLS;
+        for (int r = startRow; r < startRow + BLOCK_ROWS; r++) {
+            for (int c = startCol; c < startCol + BLOCK_COLS; c++) {
+                if ((r != row || c != col) && board.get(r).get(c) == candidate) {
+                    return false;
+                }
             }
         }
         return true;

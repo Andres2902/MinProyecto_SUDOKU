@@ -106,7 +106,7 @@ public class Game extends GameAbstract {
 
         List<Integer> possibles = board.getPossibleNumbers(empty[0], empty[1]);
         if (possibles.isEmpty()) {
-            return "No hay números válidos para la celda (" + (empty[0] + 1) + "," + (empty[1] + 1) + ").";
+            return "No hay números válidos para la celda (" + (empty[0] + 1) + "," + (empty[1] + 1) + "). Revisa el tablero";
         }
 
         int suggestion = possibles.get(0);

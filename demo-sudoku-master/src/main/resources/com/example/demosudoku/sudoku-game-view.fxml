@@ -52,15 +52,27 @@
         </GridPane>
 
 
-        <Button text="Ayuda"
-                layoutX="100.0" layoutY="330.0"
-                prefWidth="90.0"
-                onAction="#handleHelp"
-                style="-fx-background-color: #00A8CC; -fx-text-fill: #142850;">
-            <font>
-                <Font name="Berlin Sans FB" size="14.0" />
-            </font>
-        </Button>
+        <!-- Contenedor para los botones -->
+        <AnchorPane layoutY="320.0" prefHeight="60.0" prefWidth="400.0">
+
+            <Button text="Ayuda"
+                    layoutX="90.0"
+                    layoutY="15.0"
+                    prefWidth="100.0"
+                    prefHeight="30.0"
+                    onAction="#handleHelp"
+                    style="-fx-background-color: #00A8CC; -fx-text-fill: #142850; -fx-font-family: 'Berlin Sans FB'; -fx-font-size: 14px;" />
+
+            <Button text="Reiniciar"
+                    layoutX="210.0"
+                    layoutY="15.0"
+                    prefWidth="100.0"
+                    prefHeight="30.0"
+                    onAction="#handleRestart"
+                    style="-fx-background-color: #00A8CC; -fx-text-fill: #142850; -fx-font-family: 'Berlin Sans FB'; -fx-font-size: 14px;" />
+
+        </AnchorPane>
+
 
 
 

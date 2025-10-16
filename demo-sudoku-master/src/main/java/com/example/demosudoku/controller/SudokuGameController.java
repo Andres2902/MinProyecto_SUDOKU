@@ -59,5 +59,13 @@ public class SudokuGameController implements Initializable {
         String message = game.suggestNumber();
         alertBox.showAlert("Ayuda del Sudoku", message, Alert.AlertType.INFORMATION);
     }
+    @FXML
+    private void handleRestart() {
+        boardGridPane.getChildren().clear();
+        game = new Game(boardGridPane);
+        game.startGame();
+
+        System.out.println("Se ha reiniciado el juego.");
+    }
 
 }
